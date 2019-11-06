@@ -1,0 +1,68 @@
+<!doctype html>
+
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+
+  <title>Art Classifier</title>
+  <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
+</head>
+
+<body>
+    <br>
+    <center><h1>Picasso? or Van Gogh?</h1></center>
+
+        <center><form action="/sub" method = 'post'>
+             <input type = 'file' accept = "image" class = 'btn btn-dark' id = "filechooser" value ='Choose a File'>
+             <!--<textarea id = 't' name = 'text'></textarea>-->
+             <br>
+             <br>
+             <input type="submit" id = "subhub" class="btn btn-dark" value="Submit"> 
+             <input type = "hidden" id = "hid" name = "hidd" value = "No Img">
+             <!--<button type="button" onclick="showim()" class="btn btn-dark">Preview Img</button>-->
+        </form></center>
+        <br>
+        <center><img src = "/static/default.png" id="preview"/></center>
+        <style>
+          #preview{
+            width: 200px;
+            height: 200px;
+          }
+          #filechooser{
+            width: 200px;
+          }
+          #subhub{
+            width : 200px;
+          }
+
+
+        </style>
+        <script>
+          var a;
+          
+          document.getElementById('filechooser').onchange = function () {
+            //comsole.log(this.value);
+            a = this.value;
+            a = a.split('\\');
+            document.getElementById("preview").src = '/static/' + a[2];
+            document.getElementById("hid").value = a[2];
+            //alert(document.getElementById("hid").value)
+            if (document.getElementById("t").value == ""){
+              document.getElementById("preview").src = "/static/default.png"
+            }
+          };
+
+        function showim(){
+                var mainstring = "/Users/athreya/desktop/GAN_Exploration/PicassoArtClassifier/ProgramFiles/FlaskApp/static/"
+                document.getElementById("preview").src = '/static/' + a[2];
+                if (document.getElementById("t").value == ""){
+                  document.getElementById("preview").src = "/static/default.png"
+                }
+              }
+        
+        </script>
+    <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js" integrity="sha384-UO2eT0CpHqdSJQ6hJty5KVphtPhzWj9WO1clHTMGa3JDZwrnQq4sF86dIHNDz0W1" crossorigin="anonymous"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js" integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM" crossorigin="anonymous"></script>
+</body>
+</html>
